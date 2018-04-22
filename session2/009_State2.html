@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>React JS - States</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.0/react.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.0/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+  </head>
+  <body>
+    <div id="content"></div>
+    <script type="text/babel">
+
+        class MyHeading extends React.Component {
+            constructor(props) {
+                super(props);
+                this.state = {
+                    color: props.color,
+                    text: props.children
+                };
+                console.log("I am constructor");
+            }
+
+            componentWillMount() {
+
+                console.log("I am in Component Will Mount");
+
+            }
+
+            componentDidMount() {
+
+                console.log("I am in Component Did Mount");
+            }
+
+            componentWillUnMount() {
+
+                console.log("I am in Component Will UnMount");
+
+            }
+
+      
+
+
+
+
+            updateColor(color) {
+                this.setState({
+                    color: color
+                })
+            }
+            render() {
+                console.log("I am in Render");
+                return (
+                    <div>
+                        <h1 style={{color:this.state.color}}>{this.state.text}</h1>
+                        <button onClick={() => this.updateColor('green')}>Change Color to Green</button>
+                    </div>
+                );
+            }
+        }
+
+   
+		ReactDOM.render(
+          <MyHeading color='red'>Hello, World</MyHeading>,
+          document.getElementById('content')
+        );
+    </script>
+  </body>
+</html>

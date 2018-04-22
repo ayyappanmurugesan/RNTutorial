@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>React JS - MVC</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.0/react.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.0/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
+  </head>
+  <body>
+    <div id="content"></div>
+    <script type="text/babel">
+
+        class MyText extends React.Component {
+            constructor(props) {
+                super(props);
+
+                // Model 
+                this.state = {
+                    text: ''
+                };
+            }
+
+            // Controller
+            handleChange(event) {
+                this.setState({text: event.target.value});
+            }
+        
+            // View
+            render() {
+                return (
+                    <div>
+                       <input type="text" value={this.state.text} onChange={(e) => this.handleChange(e)}/>
+                       <h1>Hello, {this.state.text}</h1>
+                    </div>
+                );
+            }
+        }
+
+   
+		ReactDOM.render(
+          <MyText />,
+          document.getElementById('content')
+        );
+    </script>
+  </body>
+</html>

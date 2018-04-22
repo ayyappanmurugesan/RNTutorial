@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Create Custom DOM Elements</title>
+  </head>
+  <body>
+    <div id="content"></div>
+    <script>
+
+      function customeElement() {
+
+            var h = document.createElement("h1");
+            var node = document.createTextNode("Hello, World");
+            h.appendChild(node);
+            return h;
+      }
+
+      document.getElementById("content").appendChild(customeElement());
+
+    </script>
+  </body>
+</html>
